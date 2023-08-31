@@ -2,7 +2,6 @@
 
 namespace BiffBangPow\Validators;
 
-use BiffBangPow\Exceptions\PixelSizeValidatorFailedException;
 use SilverStripe\Assets\Upload_Validator;
 use SilverStripe\Core\Config\Configurable;
 
