@@ -1,0 +1,30 @@
+{
+  "name": "biffbangpow/silverstripe-elementmodule-template",
+  "description": "A basic skeleton for a Silverstripe 4 elemental module",
+  "type": "silverstripe-vendormodule",
+  "minimum-stability": "dev",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Tim Burt",
+      "email": "tim@biffbangpow.com"
+    },
+    {
+      "name": "James Heathcote",
+      "email": "james.h@biffbangpow.com"
+    }
+  ],
+  "require": {
+    "silverstripe/vendor-plugin": "^1.0",
+    "silverstripe/cms": "^4",
+    "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
+    "biffbangpow/silverstripe-element-spacing": "^1"
+  },
+  "autoload": {
+    "psr-4": {
+      "BiffBangPow\\Element\\": "src/"
+    }
+  },
+  "extra": {
+  }
+}
