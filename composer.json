@@ -1,14 +1,10 @@
 {
-  "name": "biffbangpow/silverstripe-elementmodule-template",
-  "description": "A basic skeleton for a Silverstripe 4 elemental module",
+  "name": "biffbangpow/silverstripe-imagesize-validator",
+  "description": "Validates the dimensions of an image during upload",
   "type": "silverstripe-vendormodule",
   "minimum-stability": "dev",
   "license": "proprietary",
   "authors": [
-    {
-      "name": "Tim Burt",
-      "email": "tim@biffbangpow.com"
-    },
     {
       "name": "James Heathcote",
       "email": "james.h@biffbangpow.com"
@@ -16,13 +12,11 @@
   ],
   "require": {
     "silverstripe/vendor-plugin": "^1.0",
-    "silverstripe/cms": "^4",
-    "dnadesign/silverstripe-elemental": "^4@stable || ^3@stable",
-    "biffbangpow/silverstripe-element-spacing": "^1"
+    "silverstripe/cms": "^4"
   },
   "autoload": {
     "psr-4": {
-      "BiffBangPow\\Element\\": "src/"
+      "BiffBangPow\\Validators\\": "src/"
     }
   },
   "extra": {

@@ -1,7 +1,20 @@
-This is a basic skeleton, designed as a starting point for building Silverstripe 4 Elemental modules.
+# Silverstripe image size validator
 
-This does not represent a working module, just the bare-bones.   Once you have created a new repo for your module using this template, you'll need to edit (as a minimum) the composer.json file to set a name, namespace, etc.
+This extends the standard upload validator and provides additional checks on the dimensions of an uploaded image.
 
-Code should be added in the `src`directory, following PSR autoloading guidelines for namespaces, directory structure, etc.
+The validator can be applied directly to an uploadfield:
 
-No front-end assets have been included, It is anticipated that these would be generated on a per-project basis, and would be added to the element within the overridden template used in the theme.  The requirements API should be used for adding element-specific assets to assist in front-end loading performance
+```php
+    public function getCMSFields()
+    {
+        $fields = parent::getCMSFields();
+
+        $fields->addFieldsToTab('Root.Main', [
+            UploadField::create('Image')->setValidator(PixelSizeValidator::create()),
+        ]);
+
+        return $fields;
+    }
+```
+
+**Note:** the validator should only be added to upload fields where the underlying class is an `Image` or subclass thereof.   Adding the validator to an upload field where files may be uploaded will cause any non-images to be rejected.
