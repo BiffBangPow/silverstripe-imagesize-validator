@@ -32,7 +32,7 @@ class PixelSizeValidator extends Upload_Validator
 
         if ($imageDetails['width'] > $maxWidth) {
             throw new PixelSizeValidatorFailedException(
-                _t(__CLASS__.'.ImageTooWide', 'Image is {width} pixels wide, maximum allowed width is {maxwidth}', [
+                _t(__CLASS__.'.ImageTooWide', 'Image is {width}px wide, (maximum {maxwidth})', [
                     'width' => $imageDetails['width'],
                     'maxwidth' => $maxWidth
                 ])
@@ -41,7 +41,7 @@ class PixelSizeValidator extends Upload_Validator
 
         if ($imageDetails['height'] > $maxHeight) {
             throw new PixelSizeValidatorFailedException(
-                _t(__CLASS__.'.ImageTooTall', 'Image is {height} pixels tall, maximum allowed height is {maxheight}', [
+                _t(__CLASS__.'.ImageTooTall', 'Image is {height}px tall, maximum ({maxheight})', [
                     'height' => $imageDetails['height'],
                     'maxheight' => $maxHeight
                 ])
@@ -83,7 +83,9 @@ class PixelSizeValidator extends Upload_Validator
         try {
             return $this->pixelSizesAreValid();
         } catch (PixelSizeValidatorFailedException $e) {
-            $this->errors[] = sprintf('Pixel Size: %s', $e->getMessage());
+            $this->errors[] = _t(__CLASS__.'.ErrorPrefix', 'Error: {error}', [
+                'error' => $e->getMessage()
+            ]);
             return false;
         }
     }
